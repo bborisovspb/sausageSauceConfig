@@ -1,5 +1,5 @@
 test-property:
-  sauce: Mustard-dev
+  sauce: Mustard-devka
 
 spring:    
   profiles:
