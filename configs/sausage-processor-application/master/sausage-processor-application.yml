@@ -1,0 +1,56 @@
+spring:    
+  profiles:
+    active: dev
+  cloud:
+#    мы разрешаем получать автоапдейт от Bus.
+    bus:
+      enabled: true
+    refresh:
+      enabled: true
+    service-registry:
+      auto-registration:
+        fail-fast: true
+
+
+    config:
+#      Если вдруг конфиг сервер недоступен и мы хотим,
+#      чтобы наш сервис не работал и повторял попытку соединения
+#      с конфиг сервером для получения оттуда данных, то за это отвечает следующее свойство:
+      fail-fast: true
+#      Также мы указали максимальное количество попыток подключения к серверу.
+      retry:
+        max-attempts: 20
+#        Интервал между каждой попыткой.
+        max-interval: 15000
+#        Интервал для первой попытки.
+        initial-interval: 10000
+    stream:
+#      Надо разобраться. Потом. :)
+#      kafka:
+#        binder:
+#          auto-add-partitions: true
+
+      bindings:
+        processingCheck-in-0: #OK ПО НАЗВАНИЮ МЕТОДА\БИНА
+          destination: sausageSender
+        processingCheck-out-0:
+          destination: sausageFormatSender #OK ПО НАЗВАНИЮ МЕТОДА\БИНА
+
+
+#   Если Kafka не на стандартном порту
+#  kafka:
+#    consumer:
+#      bootstrap-servers: localhost:33245
+#    producer:
+#      bootstrap-servers: localhost:33245
+#    admin:
+#      auto-create: true
+
+eureka:
+  #  Настройка приложения как клиента Eureka
+  client:
+    serviceUrl:
+      #      По этому адресу клиент Eureka будет регистрироваться на Eureka СЕРВЕРЕ.
+      #      ${EUREKA_URI}, который будет подставлен из переменной окружения EUREKA_URI.
+      #      Если переменная не задана, то используется значение http://localhost:8761/eureka по умолчанию.
+      defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
