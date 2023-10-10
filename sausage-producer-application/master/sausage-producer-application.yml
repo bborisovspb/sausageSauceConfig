@@ -1,4 +1,9 @@
-spring:    
+server:
+  port: 9089
+
+
+
+spring:
   profiles:
     active: dev
   cloud:
