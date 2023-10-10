@@ -1,6 +1,9 @@
 server:
   port: 9090
 
+test-property:
+  sauce: Ketchup-dev
+
 
 spring:    
   profiles:
