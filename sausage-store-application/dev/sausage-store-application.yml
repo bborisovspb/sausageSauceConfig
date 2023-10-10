@@ -1,3 +1,6 @@
+test-property:
+  sauce: Mustard-dev
+
 spring:    
   profiles:
     active: dev
