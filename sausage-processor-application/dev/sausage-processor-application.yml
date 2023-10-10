@@ -26,9 +26,9 @@ spring:
         initial-interval: 10000
     stream:
 #      Надо разобраться. Потом. :)
-#      kafka:
-#        binder:
-#          auto-add-partitions: true
+     kafka:
+       binder:
+         auto-add-partitions: true
 
       bindings:
         processingCheck-in-0: #OK ПО НАЗВАНИЮ МЕТОДА\БИНА
