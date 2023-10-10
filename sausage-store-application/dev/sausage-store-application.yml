@@ -55,8 +55,3 @@ eureka:
       #      ${EUREKA_URI}, который будет подставлен из переменной окружения EUREKA_URI.
       #      Если переменная не задана, то используется значение http://localhost:8761/eureka по умолчанию.
       defaultZone: ${EUREKA_URI:http://localhost:8761/eureka}
-	  
-
-logging:
-  file:
-    name: Sausages.log
